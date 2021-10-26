@@ -1,0 +1,14 @@
+commands ; 
+
+const simpleNftCustodian = await SimpleNFTCustodian.deployed()
+const simpleNft = await SimpleNFT.deployed()
+
+simpleNftCustodian.setSimpleNftAddress(simpleNft.address)
+
+simpleNft.mintNft('mock-uri',100,simpleNftCustodian.address)
+
+simpleNftCustodian.setPartialOwnership(['0x759BFa22Ffe2325FaF83e5542a2a9606a538ee92','0x46cE8b2990397Ea8f30381a4D45839CA76e9F366'],0)
+
+simpleNftCustodian.buyNft(0,{from:accounts[4],value:9999})
+
+
